@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -177,12 +176,12 @@
         }
 
         .chat-box {
-            max-width: 750px;
+            max-width: 1100px;
             margin: auto;
             background: #182234;
             border: 1px solid #273244;
             border-radius: 15px;
-            padding: 40px 25px;
+            padding: 30px 20px;
         }
 
         .chat-box h3 {
@@ -193,13 +192,23 @@
         .chat-box p {
             color: #aeb8c8;
             line-height: 1.7;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .channels {
             margin-bottom: 25px;
             color: #00d4ff;
             font-weight: bold;
+        }
+
+        /* KIWIIRC */
+        .irc-frame {
+            width: 100%;
+            height: 550px;
+            border: 0;
+            border-radius: 10px;
+            display: block;
+            background: #000000;
         }
 
         /* CONTACT */
@@ -256,6 +265,14 @@
             section {
                 padding: 55px 5%;
             }
+
+            .chat-box {
+                padding: 20px 10px;
+            }
+
+            .irc-frame {
+                height: 500px;
+            }
         }
     </style>
 </head>
@@ -298,11 +315,7 @@
 
             <div class="buttons">
 
-                <a
-                    href="https://kiwiirc.com/nextclient/irc.dal.net/#alowaini,#Fyp"
-                    class="button"
-                    target="_blank"
-                    rel="noopener">
+                <a href="#chat" class="button">
                     💬 CHAT SEKARANG
                 </a>
 
@@ -414,13 +427,11 @@
                 DALnet &nbsp;•&nbsp; #alowaini &nbsp;•&nbsp; #Fyp
             </div>
 
-            <a
-                href="https://kiwiirc.com/nextclient/irc.dal.net/#alowaini,#Fyp"
-                class="button"
-                target="_blank"
-                rel="noopener">
-                🚀 MASUK KE CHAT
-            </a>
+            <!-- KIWIIRC -->
+            <iframe
+                src="https://kiwiirc.com/client/irc.dal.net/?nick=aLwS|?&theme=cli#alowaini,#Fyp"
+                class="irc-frame">
+            </iframe>
 
         </div>
 
@@ -454,4 +465,3 @@
 
 </body>
 </html>
-```
