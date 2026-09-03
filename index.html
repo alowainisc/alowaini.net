@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -13,11 +14,14 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: #0b0f19;
             color: #ffffff;
-            min-height: 100vh;
         }
 
         /* NAVBAR */
@@ -29,6 +33,9 @@
             align-items: center;
             background: #111827;
             border-bottom: 1px solid #273244;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .logo {
@@ -59,20 +66,22 @@
 
         /* HERO */
         .hero {
-            min-height: 70vh;
+            min-height: 75vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
+            background:
+                radial-gradient(circle at center, #17233b 0%, #0b0f19 65%);
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 850px;
         }
 
         .hero h1 {
-            font-size: 55px;
+            font-size: 60px;
             margin-bottom: 20px;
         }
 
@@ -84,12 +93,19 @@
             color: #aeb8c8;
             font-size: 18px;
             line-height: 1.7;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
         .button {
             display: inline-block;
-            padding: 13px 28px;
+            padding: 14px 28px;
             border-radius: 8px;
             background: #00d4ff;
             color: #061018;
@@ -99,22 +115,28 @@
         }
 
         .button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             opacity: 0.85;
         }
 
-        /* FEATURES */
-        .features {
-            padding: 60px 8%;
-            background: #111827;
+        .button.secondary {
+            background: #182234;
+            color: #ffffff;
+            border: 1px solid #334155;
         }
 
-        .features h2 {
+        /* SECTION */
+        section {
+            padding: 70px 8%;
+        }
+
+        section h2 {
             text-align: center;
-            margin-bottom: 40px;
-            font-size: 30px;
+            margin-bottom: 45px;
+            font-size: 32px;
         }
 
+        /* CARDS */
         .cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -124,16 +146,23 @@
         }
 
         .card {
-            background: #182234;
-            padding: 30px;
-            border-radius: 12px;
+            background: #111827;
+            padding: 32px;
+            border-radius: 14px;
             text-align: center;
             border: 1px solid #273244;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
         }
 
         .card h3 {
             margin-bottom: 15px;
             color: #00d4ff;
+            font-size: 21px;
         }
 
         .card p {
@@ -141,12 +170,56 @@
             line-height: 1.6;
         }
 
+        /* CHAT */
+        .chat-section {
+            background: #111827;
+            text-align: center;
+        }
+
+        .chat-box {
+            max-width: 750px;
+            margin: auto;
+            background: #182234;
+            border: 1px solid #273244;
+            border-radius: 15px;
+            padding: 40px 25px;
+        }
+
+        .chat-box h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .chat-box p {
+            color: #aeb8c8;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .channels {
+            margin-bottom: 25px;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+        }
+
+        .email {
+            color: #00d4ff;
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
         /* FOOTER */
         footer {
             text-align: center;
-            padding: 25px;
+            padding: 30px 20px;
             color: #7f8a9c;
-            background: #0b0f19;
+            background: #070b12;
+            border-top: 1px solid #1e293b;
         }
 
         /* MOBILE */
@@ -157,15 +230,19 @@
             }
 
             nav ul {
-                gap: 12px;
+                gap: 10px;
             }
 
             nav ul li a {
-                font-size: 13px;
+                font-size: 12px;
+            }
+
+            .logo {
+                font-size: 21px;
             }
 
             .hero h1 {
-                font-size: 38px;
+                font-size: 40px;
             }
 
             .hero p {
@@ -175,6 +252,10 @@
             .cards {
                 grid-template-columns: 1fr;
             }
+
+            section {
+                padding: 55px 5%;
+            }
         }
     </style>
 </head>
@@ -183,6 +264,7 @@
 
     <!-- NAVIGATION -->
     <nav>
+
         <div class="logo">
             a<span>Lo</span>WaiNi
         </div>
@@ -191,13 +273,16 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#games">Games</a></li>
+            <li><a href="#chat">💬 Chat</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+
     </nav>
 
 
-    <!-- HERO -->
+    <!-- HOME -->
     <section class="hero" id="home">
+
         <div class="hero-content">
 
             <h1>
@@ -206,36 +291,42 @@
             </h1>
 
             <p>
-                Selamat datang di alowaini.net.
-                Website resmi aLoWaiNi yang sedang dikembangkan
-                untuk komunitas, games, dan berbagai informasi menarik.
+                Selamat datang di website resmi aLoWaiNi.net.
+                Tempat berkumpulnya komunitas, bermain games,
+                dan chatting bersama.
             </p>
 
-            <a href="#games" class="button">
-                Jelajahi Website
-            </a>
+            <div class="buttons">
+
+                <a
+                    href="https://kiwiirc.com/nextclient/irc.dal.net/#alowaini,#Fyp"
+                    class="button"
+                    target="_blank"
+                    rel="noopener">
+                    💬 CHAT SEKARANG
+                </a>
+
+                <a href="#games" class="button secondary">
+                    🎮 LIHAT GAMES
+                </a>
+
+            </div>
 
         </div>
+
     </section>
 
 
-    <!-- FEATURES -->
-    <section class="features" id="about">
+    <!-- ABOUT -->
+    <section id="about">
 
         <h2>Tentang aLoWaiNi</h2>
 
         <div class="cards">
 
             <div class="card">
-                <h3>🎮 Games</h3>
-                <p>
-                    Berbagai permainan dan aktivitas seru
-                    untuk komunitas aLoWaiNi.
-                </p>
-            </div>
+                <h3>🌐 Community</h3>
 
-            <div class="card">
-                <h3>💬 Community</h3>
                 <p>
                     Tempat berkumpul dan berinteraksi
                     bersama komunitas aLoWaiNi.
@@ -243,10 +334,20 @@
             </div>
 
             <div class="card">
-                <h3>🌐 Website</h3>
+                <h3>💬 IRC Chat</h3>
+
                 <p>
-                    Portal resmi aLoWaiNi yang akan terus
-                    dikembangkan dengan berbagai fitur baru.
+                    Nikmati chatting melalui web
+                    maupun aplikasi mIRC.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>🎮 Games</h3>
+
+                <p>
+                    Berbagai permainan seru untuk
+                    menghibur dan menguji kemampuan.
                 </p>
             </div>
 
@@ -256,32 +357,70 @@
 
 
     <!-- GAMES -->
-    <section class="features" id="games">
+    <section id="games">
 
         <h2>Games</h2>
 
         <div class="cards">
 
             <div class="card">
-                <h3>Family 100</h3>
+                <h3>🏆 Family 100</h3>
+
                 <p>
-                    Tebak jawaban yang paling populer.
+                    Tebak jawaban paling populer
+                    dan kumpulkan poin.
                 </p>
             </div>
 
             <div class="card">
-                <h3>Trivia</h3>
+                <h3>🧠 Trivia</h3>
+
                 <p>
-                    Uji pengetahuan dan wawasan kamu.
+                    Uji pengetahuan dan wawasan
+                    kamu bersama pemain lainnya.
                 </p>
             </div>
 
             <div class="card">
-                <h3>Word Game</h3>
+                <h3>🔤 Word Game</h3>
+
                 <p>
-                    Permainan kata untuk menguji kecepatan berpikir.
+                    Permainan kata untuk menguji
+                    kecepatan dan ketelitian.
                 </p>
             </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CHAT -->
+    <section class="chat-section" id="chat">
+
+        <h2>💬 Web Chat</h2>
+
+        <div class="chat-box">
+
+            <h3>Chat Bersama aLoWaiNi</h3>
+
+            <p>
+                Tidak punya aplikasi mIRC?
+                Tidak masalah. Kamu bisa langsung
+                chatting melalui browser.
+            </p>
+
+            <div class="channels">
+                DALnet &nbsp;•&nbsp; #alowaini &nbsp;•&nbsp; #Fyp
+            </div>
+
+            <a
+                href="https://kiwiirc.com/nextclient/irc.dal.net/#alowaini,#Fyp"
+                class="button"
+                target="_blank"
+                rel="noopener">
+                🚀 MASUK KE CHAT
+            </a>
 
         </div>
 
@@ -289,27 +428,28 @@
 
 
     <!-- CONTACT -->
-    <section class="features" id="contact">
+    <section class="contact" id="contact">
 
         <h2>Contact</h2>
 
-        <div style="text-align:center;">
-            <p style="color:#aeb8c8; margin-bottom:20px;">
-                Untuk informasi lebih lanjut mengenai aLoWaiNi,
-                silakan hubungi kami.
-            </p>
-
-            <a href="mailto:admin@alowaini.net" class="button">
-                Email Kami
-            </a>
+        <div class="email">
+            faris@alowaini.net
         </div>
+
+        <a
+            href="mailto:faris@alowaini.net"
+            class="button">
+            ✉️ KIRIM EMAIL
+        </a>
 
     </section>
 
 
     <!-- FOOTER -->
     <footer>
+
         © 2026 aLoWaiNi.net — All Rights Reserved.
+
     </footer>
 
 </body>
